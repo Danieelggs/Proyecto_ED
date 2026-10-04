@@ -180,14 +180,6 @@ Proyecto_ED/
     └── medicion/                   # generador de planes y medición de tiempos
 ```
 
-## Plan de entregas
-
-| Entrega | Contenido | Estado |
-| --- | --- | --- |
-| **1** | Planteamiento del problema, diseño del sistema, justificación de estructuras y README | ✅ Esta entrega |
-| **2** | Implementación con listas, pilas, colas y AVL; análisis de tiempos de ejecución | ⏳ Pendiente |
-| **3** | Implementación con hash, heap, grafos y conjuntos; comparación con la entrega 2 | ⏳ Pendiente |
-
 ## Convenciones de trabajo
 
 - **Ramas:** `main` estable; cada integrante trabaja en una rama `feature/<tema>` y une sus cambios con *pull request*.
