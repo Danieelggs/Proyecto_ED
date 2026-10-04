@@ -49,3 +49,24 @@ El sistema debe:
 | **JUnit 5** | Pruebas unitarias (entregas 2 y 3) |
 
 Todas las estructuras de datos se implementarán **desde cero**, sin usar las colecciones de `java.util` (`ArrayList`, `HashMap`, `PriorityQueue`, etc.), para poder analizar y comparar su rendimiento. El proyecto es técnico: aplicación de **consola** con entrada por archivo de texto, sin interfaz gráfica.
+
+## Solución propuesta
+
+El plan de estudios se modela como un **grafo dirigido**: cada asignatura es un nodo y cada prerrequisito es una arista `A → B` ("A debe aprobarse antes que B"). Un plan válido no puede tener ciclos; si los tiene, es imposible de terminar y el sistema lo reporta.
+
+```text
+Cálculo Diferencial ──► Cálculo Integral ──► Ecuaciones Diferenciales
+                                        └──► Probabilidad y Estadística
+Fundamentos de Prog. ──► POO ──► Estructuras de Datos ──► Algoritmos
+Matemáticas Discretas ─────────────────┘
+```
+
+**Flujo general:**
+
+1. **Leer** el archivo con el plan y el límite `k`.
+2. **Registrar** cada asignatura y enlazar sus prerrequisitos.
+3. **Validar** que no haya ciclos (orden topológico, algoritmo de Kahn).
+4. **Calcular la prioridad** de cada asignatura: la longitud de la cadena más larga de asignaturas que dependen de ella.
+5. **Armar los semestres**: en cada uno se toman las `k` asignaturas disponibles de mayor prioridad. Las que quedan habilitadas pasan al semestre siguiente.
+6. **Mostrar** el plan y una **cota inferior** `LB = max(⌈n / k⌉, cadena más larga)`. Si el plan usa `LB` semestres, es óptimo con certeza.
+
