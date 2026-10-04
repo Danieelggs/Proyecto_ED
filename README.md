@@ -70,3 +70,25 @@ Matemáticas Discretas ─────────────────┘
 5. **Armar los semestres**: en cada uno se toman las `k` asignaturas disponibles de mayor prioridad. Las que quedan habilitadas pasan al semestre siguiente.
 6. **Mostrar** el plan y una **cota inferior** `LB = max(⌈n / k⌉, cadena más larga)`. Si el plan usa `LB` semestres, es óptimo con certeza.
 
+## Estructuras de datos
+
+### Entrega 2: estructuras vistas hasta árboles AVL
+
+| Estructura | Uso en el sistema | Costo | Justificación |
+| --- | --- | --- | --- |
+| Árbol AVL por ID | Registro y acceso a asignaturas | O(log n) | Los IDs son dispersos y suelen venir ordenados; un ABB simple degeneraría a O(n) |
+| Lista enlazada | Prerrequisitos y dependientes de cada asignatura | O(1) al agregar | Cantidad variable y solo se recorren en orden |
+| Cola | Algoritmo de Kahn: detecta ciclos y libera asignaturas | O(1) | Procesa las asignaturas por niveles de disponibilidad |
+| Pila | Recorrer el orden topológico al revés para calcular prioridades | O(1) | La prioridad de una asignatura depende de sus dependientes |
+| Árbol AVL por prioridad | Asignaturas disponibles; se extraen las `k` mayores | O(log n) | Mantiene el orden sin reordenar cada semestre |
+
+### Entrega 3: heaps, conjuntos, hash y grafos
+
+| Estructura | Reemplaza a | Mejora esperada |
+| --- | --- | --- |
+| Tabla hash | AVL por ID | Acceso por ID en O(1) promedio |
+| Grafo dirigido (listas de adyacencia + DFS) | Listas sueltas | Modelo explícito y detección de ciclos en O(n + e) |
+| Heap de máximos | AVL por prioridad | Mismo O(log n) con menor costo constante |
+| Conjuntos (bits) | — | Solución exacta para planes pequeños (n ≤ 20) |
+
+Ambas versiones se compararán con mediciones de tiempo de ejecución y gráficas.
