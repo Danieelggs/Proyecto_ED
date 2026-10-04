@@ -1,0 +1,18 @@
+# Plan de ejemplo (IDs ilustrativos, no son códigos oficiales SIA)
+# Primera línea útil: k = máximo de asignaturas por semestre
+3
+# id;nombre;prerrequisitos (IDs separados por coma)
+101;Cálculo Diferencial;
+102;Fundamentos de Programación;
+103;Álgebra Lineal;
+104;Cálculo Integral;101
+105;Programación Orientada a Objetos;102
+106;Matemáticas Discretas I;
+107;Estructuras de Datos;105,106
+108;Cálculo en Varias Variables;104
+109;Ecuaciones Diferenciales;104,103
+110;Algoritmos;107
+111;Bases de Datos;107
+112;Ingeniería de Software I;105
+113;Probabilidad y Estadística;104
+114;Sistemas Operativos;110
