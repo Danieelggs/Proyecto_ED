@@ -157,3 +157,39 @@ javac -d out (Get-ChildItem -Recurse src -Filter *.java).FullName
 # Ejecutar con un plan de ejemplo
 java -cp out unal.graduacion.Main datos/plan_ejemplo.txt
 ```
+## Estructura del proyecto
+
+Estructura prevista del repositorio:
+
+```text
+Proyecto_ED/
+├── README.md
+├── datos/                          # planes de estudio de ejemplo (.txt)
+├── resultados/                     # tiempos de ejecución (.csv) y gráficas
+└── src/unal/graduacion/
+    ├── Main.java                   # entrada por consola
+    ├── estructuras/                # implementaciones propias
+    │   ├── ListaEnlazada.java
+    │   ├── Cola.java
+    │   ├── Pila.java
+    │   ├── ArbolAVL.java
+    │   └── entrega3/               # TablaHash, MonticuloMaximo, GrafoDirigido
+    ├── modelo/                     # Asignatura, RegistroAsignaturas
+    ├── io/                         # lectura y validación del archivo de entrada
+    ├── planificador/               # cálculo del mínimo de semestres
+    └── medicion/                   # generador de planes y medición de tiempos
+```
+
+## Plan de entregas
+
+| Entrega | Contenido | Estado |
+| --- | --- | --- |
+| **1** | Planteamiento del problema, diseño del sistema, justificación de estructuras y README | ✅ Esta entrega |
+| **2** | Implementación con listas, pilas, colas y AVL; análisis de tiempos de ejecución | ⏳ Pendiente |
+| **3** | Implementación con hash, heap, grafos y conjuntos; comparación con la entrega 2 | ⏳ Pendiente |
+
+## Convenciones de trabajo
+
+- **Ramas:** `main` estable; cada integrante trabaja en una rama `feature/<tema>` y une sus cambios con *pull request*.
+- **Commits:** mensajes descriptivos en español y en imperativo, un avance concreto por commit. Ejemplo: `Agrega rotaciones al árbol AVL`.
+- **Código:** nombres en español, comentarios Javadoc con la complejidad de cada operación.
