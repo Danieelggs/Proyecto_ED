@@ -92,3 +92,68 @@ Matemáticas Discretas ─────────────────┘
 | Conjuntos (bits) | — | Solución exacta para planes pequeños (n ≤ 20) |
 
 Ambas versiones se compararán con mediciones de tiempo de ejecución y gráficas.
+
+## Requisitos funcionales (MVP)
+
+| ID | Requisito |
+| --- | --- |
+| RF1 | Registrar asignaturas con ID, nombre y prerrequisitos; rechazar IDs duplicados y prerrequisitos inexistentes |
+| RF2 | Acceder a cualquier asignatura por su ID |
+| RF3 | Detectar ciclos de prerrequisitos y reportar las asignaturas afectadas |
+| RF4 | Calcular el número de semestres sin superar `k` por semestre |
+| RF5 | Mostrar las asignaturas de cada semestre |
+| RF6 | Informar la cota inferior y si el plan es óptimo garantizado |
+| RF7 | Medir tiempos de ejecución con planes de tamaño creciente y exportarlos a CSV |
+
+## Formato de entrada y salida
+
+**Entrada:** archivo de texto (UTF-8). Las líneas que empiezan por `#` son comentarios.
+
+```text
+# Primera línea: k = máximo de asignaturas por semestre
+3
+# id;nombre;prerrequisitos separados por coma
+101;Cálculo Diferencial;
+102;Fundamentos de Programación;
+104;Cálculo Integral;101
+105;Programación Orientada a Objetos;102
+106;Matemáticas Discretas I;
+107;Estructuras de Datos;105,106
+```
+
+**Salida esperada:**
+
+```text
+Semestres necesarios: 3 (máximo 3 asignaturas por semestre)
+Cota inferior: 3 -> el plan es óptimo con certeza
+
+Semestre 1: [102] Fundamentos de Programación, [101] Cálculo Diferencial, [106] Matemáticas Discretas I
+Semestre 2: [105] Programación Orientada a Objetos, [104] Cálculo Integral
+Semestre 3: [107] Estructuras de Datos
+```
+
+## Instalación
+
+**Requisitos:** [JDK 17 o superior](https://adoptium.net/) y [Git](https://git-scm.com/).
+
+```bash
+# 1. Clonar el repositorio
+git clone https://github.com/Danieelggs/Proyecto_ED.git
+cd Proyecto_ED
+
+# 2. Verificar la versión de Java
+java -version
+```
+
+Compilar y ejecutar (disponible a partir de la entrega 2):
+
+```bash
+# Linux / macOS
+javac -d out $(find src -name "*.java")
+
+# Windows (PowerShell)
+javac -d out (Get-ChildItem -Recurse src -Filter *.java).FullName
+
+# Ejecutar con un plan de ejemplo
+java -cp out unal.graduacion.Main datos/plan_ejemplo.txt
+```
