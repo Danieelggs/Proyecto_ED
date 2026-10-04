@@ -2,9 +2,9 @@
 
 > Planificador del **mínimo número de semestres** para terminar un plan de estudios, respetando prerrequisitos y el límite de asignaturas por semestre.
 
-**Curso:** Estructuras de Datos (2016699), Universidad Nacional de Colombia
+**Curso:** Estructuras de Datos, Universidad Nacional de Colombia
 **Profesor:** David Alberto Herrera Álvarez
-**Estado:** Entrega 1 (planteamiento y diseño)
+**Estado:** Entrega 1 
 
 ---
 
