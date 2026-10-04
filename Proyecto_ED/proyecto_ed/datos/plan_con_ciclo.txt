@@ -1,6 +1,0 @@
-# Plan inválido: 201 -> 202 -> 203 -> 201 forman un ciclo
-2
-200;Introducción;
-201;Asignatura A;200,203
-202;Asignatura B;201
-203;Asignatura C;202
