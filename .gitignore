@@ -1,0 +1,29 @@
+# Clases compiladas
+out/
+*.class
+
+# Planes aleatorios grandes: se regeneran con la misma semilla (--generar n k archivo semilla)
+datos/aleatorio_*.txt
+
+# Registros sueltos de mediciones (los CSV finales sí se suben para el informe)
+resultados/*.log
+resultados/para_el_reporte.zip
+
+# Editores y sistema operativo
+.idea/
+.vscode/*
+!.vscode/tasks.json
+!.vscode/settings.json
+out-vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Archivos intermedios de LaTeX (el reporte se compila desde reporte/)
+reporte/*.aux
+reporte/*.log
+reporte/*.out
+reporte/*.toc
+reporte/*.fls
+reporte/*.fdb_latexmk
+reporte/*.synctex.gz
