@@ -4,9 +4,12 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
 
+import unal.graduacion.estructuras.ArbolAVL;
+import unal.graduacion.estructuras.ArbolBST;
 import unal.graduacion.estructuras.Cola;
 import unal.graduacion.estructuras.ListaEnlazada;
 import unal.graduacion.estructuras.Pila;
+import unal.graduacion.medicion.GeneradorAleatorio;
 
 /**
  * Pruebas funcionales con respuesta conocida. No dependen de JUnit, así que
@@ -36,6 +39,8 @@ public final class PruebasFuncionales {
         p.grupo("Lista enlazada", p::lista);
         p.grupo("Cola circular", p::cola);
         p.grupo("Pila", p::pila);
+        p.grupo("Árbol AVL", p::avl);
+        p.grupo("BST sin balanceo", p::bst);
         out.println();
         out.println("Resultado: " + p.aprobadas + " verificaciones correctas, " + p.fallidas + " fallidas.");
         return p.fallidas;
@@ -92,6 +97,65 @@ public final class PruebasFuncionales {
         }
         verificar(lifo && pila.estaVacia(), "LIFO con crecimiento del arreglo");
         verificar(lanza(pila::desapilar), "desapilar una pila vacía lanza excepción");
+    }
+
+    private void avl() {
+        ArbolAVL<Long, String> avl = new ArbolAVL<>();
+        int n = 10_000;
+        for (long i = 1; i <= n; i++) {
+            avl.insertar(i, "v" + i); // claves ordenadas: el peor caso para un BST
+        }
+        double maxima = 1.4405 * (Math.log(n + 2) / Math.log(2)) - 0.3277;
+        verificar(avl.esValido(), "insertar 10.000 claves ordenadas deja un AVL válido");
+        verificar(avl.altura() <= maxima, "altura " + avl.altura() + " <= 1,44·log2(n + 2)");
+        verificar(!avl.insertar(5L, "otra") && avl.tamano() == n, "no admite claves repetidas");
+        verificar("v777".equals(avl.buscar(777L)) && avl.buscar(0L) == null, "buscar");
+        for (long i = 2; i <= n; i += 2) {
+            avl.eliminar(i);
+        }
+        verificar(avl.esValido() && avl.tamano() == n / 2 && !avl.contiene(500L) && avl.contiene(501L), "eliminar la mitad");
+        verificar(avl.extraerMaximo().equals("v" + (n - 1)) && avl.extraerMinimo().equals("v1"), "extraer máximo y mínimo");
+
+        // Operaciones aleatorias contra un arreglo de referencia
+        ArbolAVL<Long, Long> aleatorio = new ArbolAVL<>();
+        boolean[] presente = new boolean[2000];
+        GeneradorAleatorio azar = new GeneradorAleatorio(7);
+        boolean coincide = true;
+        for (int paso = 0; paso < 20_000; paso++) {
+            int clave = azar.entero(presente.length);
+            if (azar.entero(3) == 0) {
+                Long quitado = aleatorio.eliminar((long) clave);
+                coincide &= (quitado != null) == presente[clave];
+                presente[clave] = false;
+            } else {
+                coincide &= aleatorio.insertar((long) clave, (long) clave) != presente[clave];
+                presente[clave] = true;
+            }
+        }
+        int cuenta = 0;
+        for (boolean p : presente) {
+            cuenta += p ? 1 : 0;
+        }
+        verificar(coincide && aleatorio.esValido() && aleatorio.tamano() == cuenta, "20.000 inserciones y eliminaciones aleatorias");
+
+        ListaEnlazada<Long> claves = new ListaEnlazada<>();
+        aleatorio.clavesEnOrden(claves);
+        boolean ascendente = true;
+        Long anterior = null;
+        for (ListaEnlazada.Nodo<Long> nodo = claves.primero(); nodo != null; nodo = nodo.siguiente()) {
+            ascendente &= anterior == null || anterior < nodo.dato();
+            anterior = nodo.dato();
+        }
+        verificar(ascendente, "recorrido en orden ascendente");
+    }
+
+    private void bst() {
+        ArbolBST<Long, String> bst = new ArbolBST<>();
+        for (long i = 1; i <= 2000; i++) {
+            bst.insertar(i, "v");
+        }
+        verificar(bst.altura() == 2000, "con claves ordenadas degenera en una lista (altura = n)");
+        verificar(bst.buscar(1999L) != null && bst.buscar(0L) == null, "buscar en el BST degenerado");
     }
 
     // ------------------------------------------------------------------ utilidades
