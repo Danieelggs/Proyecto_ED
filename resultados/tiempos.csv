@@ -1,0 +1,416 @@
+experimento,estructura,n,e,k,repeticion,tiempo_ns,tiempo_ms,semestres,cota_inferior,optimo_garantizado,altura_arbol
+registro_avl,AVL por ID,10000,15268,5,0,7198000,7.198,,,,16
+validacion_kahn,Cola circular,10000,15268,5,0,2882300,2.882,,,,
+alturas_pila,Pila,10000,15268,5,0,1913400,1.913,,,,
+planificacion_avl,AVL de prioridad,10000,15268,5,0,11070200,11.070,2000,2000,1,
+cota_inferior,Arreglos,10000,15268,5,0,327700,0.327,,2000,,
+proceso_total,Todas,10000,15268,5,0,23391600,23.391,2000,2000,1,
+planificacion_lista,Lista sin orden,10000,15268,5,0,189219100,189.219,2000,2000,1,
+avl_insertar,AVL,10000,15268,5,0,2929800,2.929,,,,16
+avl_buscar,AVL,10000,15268,5,0,1774800,1.774,,,,16
+lista_agregar_final,Lista enlazada,10000,15268,5,0,177600,0.177,,,,
+cola_encolar_desencolar,Cola circular,10000,15268,5,0,1383500,1.383,,,,
+pila_apilar_desapilar,Pila,10000,15268,5,0,347500,0.347,,,,
+bst_insertar_ordenados,BST sin balanceo,10000,15268,5,0,126917400,126.917,,,,10000
+avl_insertar_ordenados,AVL,10000,15268,5,0,1560700,1.560,,,,14
+registro_avl,AVL por ID,10000,15132,5,1,10354000,10.354,,,,16
+validacion_kahn,Cola circular,10000,15132,5,1,4577200,4.577,,,,
+alturas_pila,Pila,10000,15132,5,1,1073900,1.073,,,,
+planificacion_avl,AVL de prioridad,10000,15132,5,1,12261600,12.261,2000,2000,1,
+cota_inferior,Arreglos,10000,15132,5,1,17400,0.017,,2000,,
+proceso_total,Todas,10000,15132,5,1,28284100,28.284,2000,2000,1,
+planificacion_lista,Lista sin orden,10000,15132,5,1,242860500,242.860,2000,2000,1,
+avl_insertar,AVL,10000,15132,5,1,2509500,2.509,,,,16
+avl_buscar,AVL,10000,15132,5,1,1366700,1.366,,,,16
+lista_agregar_final,Lista enlazada,10000,15132,5,1,50000,0.050,,,,
+cola_encolar_desencolar,Cola circular,10000,15132,5,1,1668100,1.668,,,,
+pila_apilar_desapilar,Pila,10000,15132,5,1,91100,0.091,,,,
+bst_insertar_ordenados,BST sin balanceo,10000,15132,5,1,222002800,222.002,,,,10000
+avl_insertar_ordenados,AVL,10000,15132,5,1,1199200,1.199,,,,14
+registro_avl,AVL por ID,10000,15019,5,2,5383800,5.383,,,,16
+validacion_kahn,Cola circular,10000,15019,5,2,1349400,1.349,,,,
+alturas_pila,Pila,10000,15019,5,2,302100,0.302,,,,
+planificacion_avl,AVL de prioridad,10000,15019,5,2,6991300,6.991,2000,2000,1,
+cota_inferior,Arreglos,10000,15019,5,2,13200,0.013,,2000,,
+proceso_total,Todas,10000,15019,5,2,14039800,14.039,2000,2000,1,
+planificacion_lista,Lista sin orden,10000,15019,5,2,199683200,199.683,2000,2000,1,
+avl_insertar,AVL,10000,15019,5,2,2916700,2.916,,,,16
+avl_buscar,AVL,10000,15019,5,2,1356500,1.356,,,,16
+lista_agregar_final,Lista enlazada,10000,15019,5,2,60600,0.060,,,,
+cola_encolar_desencolar,Cola circular,10000,15019,5,2,252000,0.252,,,,
+pila_apilar_desapilar,Pila,10000,15019,5,2,94100,0.094,,,,
+bst_insertar_ordenados,BST sin balanceo,10000,15019,5,2,233220500,233.220,,,,10000
+avl_insertar_ordenados,AVL,10000,15019,5,2,1555900,1.555,,,,14
+registro_avl,AVL por ID,10000,15209,5,3,5343100,5.343,,,,16
+validacion_kahn,Cola circular,10000,15209,5,3,2156800,2.156,,,,
+alturas_pila,Pila,10000,15209,5,3,381000,0.381,,,,
+planificacion_avl,AVL de prioridad,10000,15209,5,3,7589800,7.589,2000,2000,1,
+cota_inferior,Arreglos,10000,15209,5,3,19400,0.019,,2000,,
+proceso_total,Todas,10000,15209,5,3,15490100,15.490,2000,2000,1,
+planificacion_lista,Lista sin orden,10000,15209,5,3,174768900,174.768,2000,2000,1,
+avl_insertar,AVL,10000,15209,5,3,1926000,1.926,,,,16
+avl_buscar,AVL,10000,15209,5,3,1055000,1.055,,,,16
+lista_agregar_final,Lista enlazada,10000,15209,5,3,32100,0.032,,,,
+cola_encolar_desencolar,Cola circular,10000,15209,5,3,196900,0.196,,,,
+pila_apilar_desapilar,Pila,10000,15209,5,3,65600,0.065,,,,
+bst_insertar_ordenados,BST sin balanceo,10000,15209,5,3,220868600,220.868,,,,10000
+avl_insertar_ordenados,AVL,10000,15209,5,3,1344300,1.344,,,,14
+registro_avl,AVL por ID,10000,14973,5,4,5043200,5.043,,,,16
+validacion_kahn,Cola circular,10000,14973,5,4,2248600,2.248,,,,
+alturas_pila,Pila,10000,14973,5,4,733100,0.733,,,,
+planificacion_avl,AVL de prioridad,10000,14973,5,4,7965100,7.965,2000,2000,1,
+cota_inferior,Arreglos,10000,14973,5,4,16200,0.016,,2000,,
+proceso_total,Todas,10000,14973,5,4,16006200,16.006,2000,2000,1,
+planificacion_lista,Lista sin orden,10000,14973,5,4,168470200,168.470,2000,2000,1,
+avl_insertar,AVL,10000,14973,5,4,1802800,1.802,,,,16
+avl_buscar,AVL,10000,14973,5,4,1087400,1.087,,,,16
+lista_agregar_final,Lista enlazada,10000,14973,5,4,32500,0.032,,,,
+cola_encolar_desencolar,Cola circular,10000,14973,5,4,198600,0.198,,,,
+pila_apilar_desapilar,Pila,10000,14973,5,4,180900,0.180,,,,
+bst_insertar_ordenados,BST sin balanceo,10000,14973,5,4,215722100,215.722,,,,10000
+avl_insertar_ordenados,AVL,10000,14973,5,4,1100400,1.100,,,,14
+registro_avl,AVL por ID,20000,29762,5,0,22842700,22.842,,,,17
+validacion_kahn,Cola circular,20000,29762,5,0,5205400,5.205,,,,
+alturas_pila,Pila,20000,29762,5,0,3529500,3.529,,,,
+planificacion_avl,AVL de prioridad,20000,29762,5,0,17975700,17.975,4000,4000,1,
+cota_inferior,Arreglos,20000,29762,5,0,26900,0.026,,4000,,
+proceso_total,Todas,20000,29762,5,0,49580200,49.580,4000,4000,1,
+planificacion_lista,Lista sin orden,20000,29762,5,0,809907800,809.907,4000,4000,1,
+avl_insertar,AVL,20000,29762,5,0,4710800,4.710,,,,17
+avl_buscar,AVL,20000,29762,5,0,3119400,3.119,,,,17
+lista_agregar_final,Lista enlazada,20000,29762,5,0,130200,0.130,,,,
+cola_encolar_desencolar,Cola circular,20000,29762,5,0,447500,0.447,,,,
+pila_apilar_desapilar,Pila,20000,29762,5,0,149700,0.149,,,,
+bst_insertar_ordenados,BST sin balanceo,20000,29762,5,0,1024187100,1024.187,,,,20000
+avl_insertar_ordenados,AVL,20000,29762,5,0,2440800,2.440,,,,15
+registro_avl,AVL por ID,20000,29985,5,1,13444300,13.444,,,,17
+validacion_kahn,Cola circular,20000,29985,5,1,3911700,3.911,,,,
+alturas_pila,Pila,20000,29985,5,1,988700,0.988,,,,
+planificacion_avl,AVL de prioridad,20000,29985,5,1,11713500,11.713,4000,4000,1,
+cota_inferior,Arreglos,20000,29985,5,1,24600,0.024,,4000,,
+proceso_total,Todas,20000,29985,5,1,30082800,30.082,4000,4000,1,
+planificacion_lista,Lista sin orden,20000,29985,5,1,826298800,826.298,4000,4000,1,
+avl_insertar,AVL,20000,29985,5,1,5441600,5.441,,,,17
+avl_buscar,AVL,20000,29985,5,1,2506200,2.506,,,,17
+lista_agregar_final,Lista enlazada,20000,29985,5,1,124300,0.124,,,,
+cola_encolar_desencolar,Cola circular,20000,29985,5,1,437900,0.437,,,,
+pila_apilar_desapilar,Pila,20000,29985,5,1,148300,0.148,,,,
+bst_insertar_ordenados,BST sin balanceo,20000,29985,5,1,908292200,908.292,,,,20000
+avl_insertar_ordenados,AVL,20000,29985,5,1,2580700,2.580,,,,15
+registro_avl,AVL por ID,20000,30128,5,2,12428100,12.428,,,,17
+validacion_kahn,Cola circular,20000,30128,5,2,5733200,5.733,,,,
+alturas_pila,Pila,20000,30128,5,2,1243000,1.243,,,,
+planificacion_avl,AVL de prioridad,20000,30128,5,2,12380100,12.380,4000,4000,1,
+cota_inferior,Arreglos,20000,30128,5,2,26300,0.026,,4000,,
+proceso_total,Todas,20000,30128,5,2,31810700,31.810,4000,4000,1,
+planificacion_lista,Lista sin orden,20000,30128,5,2,831427700,831.427,4000,4000,1,
+avl_insertar,AVL,20000,30128,5,2,6849700,6.849,,,,17
+avl_buscar,AVL,20000,30128,5,2,3576100,3.576,,,,17
+lista_agregar_final,Lista enlazada,20000,30128,5,2,153100,0.153,,,,
+cola_encolar_desencolar,Cola circular,20000,30128,5,2,483500,0.483,,,,
+pila_apilar_desapilar,Pila,20000,30128,5,2,186500,0.186,,,,
+bst_insertar_ordenados,BST sin balanceo,20000,30128,5,2,841724400,841.724,,,,20000
+avl_insertar_ordenados,AVL,20000,30128,5,2,2229200,2.229,,,,15
+registro_avl,AVL por ID,20000,30241,5,3,14707600,14.707,,,,17
+validacion_kahn,Cola circular,20000,30241,5,3,4658900,4.658,,,,
+alturas_pila,Pila,20000,30241,5,3,1330200,1.330,,,,
+planificacion_avl,AVL de prioridad,20000,30241,5,3,11654300,11.654,4000,4000,1,
+cota_inferior,Arreglos,20000,30241,5,3,24500,0.024,,4000,,
+proceso_total,Todas,20000,30241,5,3,32375500,32.375,4000,4000,1,
+planificacion_lista,Lista sin orden,20000,30241,5,3,804247600,804.247,4000,4000,1,
+avl_insertar,AVL,20000,30241,5,3,4836600,4.836,,,,17
+avl_buscar,AVL,20000,30241,5,3,2990400,2.990,,,,17
+lista_agregar_final,Lista enlazada,20000,30241,5,3,172600,0.172,,,,
+cola_encolar_desencolar,Cola circular,20000,30241,5,3,645600,0.645,,,,
+pila_apilar_desapilar,Pila,20000,30241,5,3,154700,0.154,,,,
+bst_insertar_ordenados,BST sin balanceo,20000,30241,5,3,897245900,897.245,,,,20000
+avl_insertar_ordenados,AVL,20000,30241,5,3,3652700,3.652,,,,15
+registro_avl,AVL por ID,20000,30022,5,4,14760200,14.760,,,,17
+validacion_kahn,Cola circular,20000,30022,5,4,3811400,3.811,,,,
+alturas_pila,Pila,20000,30022,5,4,1000700,1.000,,,,
+planificacion_avl,AVL de prioridad,20000,30022,5,4,11971200,11.971,4000,4000,1,
+cota_inferior,Arreglos,20000,30022,5,4,24800,0.024,,4000,,
+proceso_total,Todas,20000,30022,5,4,31568300,31.568,4000,4000,1,
+planificacion_lista,Lista sin orden,20000,30022,5,4,813967300,813.967,4000,4000,1,
+avl_insertar,AVL,20000,30022,5,4,6198600,6.198,,,,17
+avl_buscar,AVL,20000,30022,5,4,3905100,3.905,,,,17
+lista_agregar_final,Lista enlazada,20000,30022,5,4,164400,0.164,,,,
+cola_encolar_desencolar,Cola circular,20000,30022,5,4,472600,0.472,,,,
+pila_apilar_desapilar,Pila,20000,30022,5,4,165300,0.165,,,,
+bst_insertar_ordenados,BST sin balanceo,20000,30022,5,4,890147100,890.147,,,,20000
+avl_insertar_ordenados,AVL,20000,30022,5,4,2336800,2.336,,,,15
+registro_avl,AVL por ID,50000,74522,5,0,57576300,57.576,,,,19
+validacion_kahn,Cola circular,50000,74522,5,0,15246500,15.246,,,,
+alturas_pila,Pila,50000,74522,5,0,6725100,6.725,,,,
+planificacion_avl,AVL de prioridad,50000,74522,5,0,50313600,50.313,10000,10000,1,
+cota_inferior,Arreglos,50000,74522,5,0,221900,0.221,,10000,,
+proceso_total,Todas,50000,74522,5,0,130083400,130.083,10000,10000,1,
+avl_insertar,AVL,50000,74522,5,0,21133700,21.133,,,,19
+avl_buscar,AVL,50000,74522,5,0,14512300,14.512,,,,19
+lista_agregar_final,Lista enlazada,50000,74522,5,0,274000,0.274,,,,
+cola_encolar_desencolar,Cola circular,50000,74522,5,0,945800,0.945,,,,
+pila_apilar_desapilar,Pila,50000,74522,5,0,302600,0.302,,,,
+registro_avl,AVL por ID,50000,75252,5,1,67642600,67.642,,,,19
+validacion_kahn,Cola circular,50000,75252,5,1,16209300,16.209,,,,
+alturas_pila,Pila,50000,75252,5,1,6804900,6.804,,,,
+planificacion_avl,AVL de prioridad,50000,75252,5,1,49640100,49.640,10000,10000,1,
+cota_inferior,Arreglos,50000,75252,5,1,80700,0.080,,10000,,
+proceso_total,Todas,50000,75252,5,1,140377600,140.377,10000,10000,1,
+avl_insertar,AVL,50000,75252,5,1,23376500,23.376,,,,19
+avl_buscar,AVL,50000,75252,5,1,16411600,16.411,,,,19
+lista_agregar_final,Lista enlazada,50000,75252,5,1,308200,0.308,,,,
+cola_encolar_desencolar,Cola circular,50000,75252,5,1,1010300,1.010,,,,
+pila_apilar_desapilar,Pila,50000,75252,5,1,455300,0.455,,,,
+registro_avl,AVL por ID,50000,74829,5,2,68262600,68.262,,,,19
+validacion_kahn,Cola circular,50000,74829,5,2,17055500,17.055,,,,
+alturas_pila,Pila,50000,74829,5,2,6125600,6.125,,,,
+planificacion_avl,AVL de prioridad,50000,74829,5,2,52057900,52.057,10000,10000,1,
+cota_inferior,Arreglos,50000,74829,5,2,153100,0.153,,10000,,
+proceso_total,Todas,50000,74829,5,2,143654700,143.654,10000,10000,1,
+avl_insertar,AVL,50000,74829,5,2,22105800,22.105,,,,19
+avl_buscar,AVL,50000,74829,5,2,16428600,16.428,,,,19
+lista_agregar_final,Lista enlazada,50000,74829,5,2,273500,0.273,,,,
+cola_encolar_desencolar,Cola circular,50000,74829,5,2,1153900,1.153,,,,
+pila_apilar_desapilar,Pila,50000,74829,5,2,518100,0.518,,,,
+registro_avl,AVL por ID,50000,74889,5,3,66518600,66.518,,,,19
+validacion_kahn,Cola circular,50000,74889,5,3,17344200,17.344,,,,
+alturas_pila,Pila,50000,74889,5,3,5755700,5.755,,,,
+planificacion_avl,AVL de prioridad,50000,74889,5,3,44557000,44.557,10000,10000,1,
+cota_inferior,Arreglos,50000,74889,5,3,90900,0.090,,10000,,
+proceso_total,Todas,50000,74889,5,3,134266400,134.266,10000,10000,1,
+avl_insertar,AVL,50000,74889,5,3,19250000,19.250,,,,19
+avl_buscar,AVL,50000,74889,5,3,11450800,11.450,,,,19
+lista_agregar_final,Lista enlazada,50000,74889,5,3,190000,0.190,,,,
+cola_encolar_desencolar,Cola circular,50000,74889,5,3,912400,0.912,,,,
+pila_apilar_desapilar,Pila,50000,74889,5,3,284800,0.284,,,,
+registro_avl,AVL por ID,50000,74689,5,4,57927000,57.927,,,,19
+validacion_kahn,Cola circular,50000,74689,5,4,16130800,16.130,,,,
+alturas_pila,Pila,50000,74689,5,4,4102800,4.102,,,,
+planificacion_avl,AVL de prioridad,50000,74689,5,4,61052900,61.052,10000,10000,1,
+cota_inferior,Arreglos,50000,74689,5,4,93100,0.093,,10000,,
+proceso_total,Todas,50000,74689,5,4,139306600,139.306,10000,10000,1,
+avl_insertar,AVL,50000,74689,5,4,16729900,16.729,,,,19
+avl_buscar,AVL,50000,74689,5,4,10276300,10.276,,,,19
+lista_agregar_final,Lista enlazada,50000,74689,5,4,222300,0.222,,,,
+cola_encolar_desencolar,Cola circular,50000,74689,5,4,919900,0.919,,,,
+pila_apilar_desapilar,Pila,50000,74689,5,4,295600,0.295,,,,
+registro_avl,AVL por ID,100000,150394,5,0,201238600,201.238,,,,20
+validacion_kahn,Cola circular,100000,150394,5,0,31869000,31.869,,,,
+alturas_pila,Pila,100000,150394,5,0,12242500,12.242,,,,
+planificacion_avl,AVL de prioridad,100000,150394,5,0,84848300,84.848,20000,20000,1,
+cota_inferior,Arreglos,100000,150394,5,0,131400,0.131,,20000,,
+proceso_total,Todas,100000,150394,5,0,330329800,330.329,20000,20000,1,
+avl_insertar,AVL,100000,150394,5,0,42307800,42.307,,,,20
+avl_buscar,AVL,100000,150394,5,0,26985100,26.985,,,,20
+lista_agregar_final,Lista enlazada,100000,150394,5,0,6921000,6.921,,,,
+cola_encolar_desencolar,Cola circular,100000,150394,5,0,2216400,2.216,,,,
+pila_apilar_desapilar,Pila,100000,150394,5,0,634700,0.634,,,,
+registro_avl,AVL por ID,100000,150212,5,1,184294600,184.294,,,,20
+validacion_kahn,Cola circular,100000,150212,5,1,25144500,25.144,,,,
+alturas_pila,Pila,100000,150212,5,1,8138900,8.138,,,,
+planificacion_avl,AVL de prioridad,100000,150212,5,1,93786400,93.786,20000,20000,1,
+cota_inferior,Arreglos,100000,150212,5,1,6281500,6.281,,20000,,
+proceso_total,Todas,100000,150212,5,1,317645900,317.645,20000,20000,1,
+avl_insertar,AVL,100000,150212,5,1,48912500,48.912,,,,20
+avl_buscar,AVL,100000,150212,5,1,25414600,25.414,,,,20
+lista_agregar_final,Lista enlazada,100000,150212,5,1,15747600,15.747,,,,
+cola_encolar_desencolar,Cola circular,100000,150212,5,1,1962300,1.962,,,,
+pila_apilar_desapilar,Pila,100000,150212,5,1,588600,0.588,,,,
+registro_avl,AVL por ID,100000,149256,5,2,184496500,184.496,,,,20
+validacion_kahn,Cola circular,100000,149256,5,2,24323900,24.323,,,,
+alturas_pila,Pila,100000,149256,5,2,7470400,7.470,,,,
+planificacion_avl,AVL de prioridad,100000,149256,5,2,90903300,90.903,20000,20000,1,
+cota_inferior,Arreglos,100000,149256,5,2,5758900,5.758,,20000,,
+proceso_total,Todas,100000,149256,5,2,312953000,312.953,20000,20000,1,
+avl_insertar,AVL,100000,149256,5,2,47168200,47.168,,,,20
+avl_buscar,AVL,100000,149256,5,2,23740600,23.740,,,,20
+lista_agregar_final,Lista enlazada,100000,149256,5,2,15742600,15.742,,,,
+cola_encolar_desencolar,Cola circular,100000,149256,5,2,1797600,1.797,,,,
+pila_apilar_desapilar,Pila,100000,149256,5,2,987300,0.987,,,,
+registro_avl,AVL por ID,100000,150659,5,3,184259400,184.259,,,,20
+validacion_kahn,Cola circular,100000,150659,5,3,25558900,25.558,,,,
+alturas_pila,Pila,100000,150659,5,3,7466300,7.466,,,,
+planificacion_avl,AVL de prioridad,100000,150659,5,3,93899100,93.899,20000,20000,1,
+cota_inferior,Arreglos,100000,150659,5,3,148700,0.148,,20000,,
+proceso_total,Todas,100000,150659,5,3,311332400,311.332,20000,20000,1,
+avl_insertar,AVL,100000,150659,5,3,39257300,39.257,,,,20
+avl_buscar,AVL,100000,150659,5,3,23047900,23.047,,,,20
+lista_agregar_final,Lista enlazada,100000,150659,5,3,6079100,6.079,,,,
+cola_encolar_desencolar,Cola circular,100000,150659,5,3,2253800,2.253,,,,
+pila_apilar_desapilar,Pila,100000,150659,5,3,637700,0.637,,,,
+registro_avl,AVL por ID,100000,149867,5,4,222980800,222.980,,,,20
+validacion_kahn,Cola circular,100000,149867,5,4,23563100,23.563,,,,
+alturas_pila,Pila,100000,149867,5,4,8060500,8.060,,,,
+planificacion_avl,AVL de prioridad,100000,149867,5,4,84071300,84.071,20000,20000,1,
+cota_inferior,Arreglos,100000,149867,5,4,365200,0.365,,20000,,
+proceso_total,Todas,100000,149867,5,4,339040900,339.040,20000,20000,1,
+avl_insertar,AVL,100000,149867,5,4,45554000,45.554,,,,20
+avl_buscar,AVL,100000,149867,5,4,25259900,25.259,,,,20
+lista_agregar_final,Lista enlazada,100000,149867,5,4,5542900,5.542,,,,
+cola_encolar_desencolar,Cola circular,100000,149867,5,4,2064800,2.064,,,,
+pila_apilar_desapilar,Pila,100000,149867,5,4,644400,0.644,,,,
+registro_avl,AVL por ID,200000,300216,5,0,546035400,546.035,,,,21
+validacion_kahn,Cola circular,200000,300216,5,0,69907000,69.907,,,,
+alturas_pila,Pila,200000,300216,5,0,18790200,18.790,,,,
+planificacion_avl,AVL de prioridad,200000,300216,5,0,201167400,201.167,40000,40000,1,
+cota_inferior,Arreglos,200000,300216,5,0,276400,0.276,,40000,,
+proceso_total,Todas,200000,300216,5,0,836176400,836.176,40000,40000,1,
+avl_insertar,AVL,200000,300216,5,0,144835500,144.835,,,,21
+avl_buscar,AVL,200000,300216,5,0,79956700,79.956,,,,21
+lista_agregar_final,Lista enlazada,200000,300216,5,0,28229800,28.229,,,,
+cola_encolar_desencolar,Cola circular,200000,300216,5,0,6534300,6.534,,,,
+pila_apilar_desapilar,Pila,200000,300216,5,0,3300800,3.300,,,,
+registro_avl,AVL por ID,200000,301391,5,1,323317900,323.317,,,,21
+validacion_kahn,Cola circular,200000,301391,5,1,62384800,62.384,,,,
+alturas_pila,Pila,200000,301391,5,1,21968900,21.968,,,,
+planificacion_avl,AVL de prioridad,200000,301391,5,1,198408100,198.408,40000,40000,1,
+cota_inferior,Arreglos,200000,301391,5,1,240500,0.240,,40000,,
+proceso_total,Todas,200000,301391,5,1,606320200,606.320,40000,40000,1,
+avl_insertar,AVL,200000,301391,5,1,140697700,140.697,,,,21
+avl_buscar,AVL,200000,301391,5,1,77550900,77.550,,,,21
+lista_agregar_final,Lista enlazada,200000,301391,5,1,6363300,6.363,,,,
+cola_encolar_desencolar,Cola circular,200000,301391,5,1,5901200,5.901,,,,
+pila_apilar_desapilar,Pila,200000,301391,5,1,3644700,3.644,,,,
+registro_avl,AVL por ID,200000,301008,5,2,374660600,374.660,,,,21
+validacion_kahn,Cola circular,200000,301008,5,2,62640000,62.640,,,,
+alturas_pila,Pila,200000,301008,5,2,20406700,20.406,,,,
+planificacion_avl,AVL de prioridad,200000,301008,5,2,204232000,204.232,40000,40000,1,
+cota_inferior,Arreglos,200000,301008,5,2,395900,0.395,,40000,,
+proceso_total,Todas,200000,301008,5,2,662335200,662.335,40000,40000,1,
+avl_insertar,AVL,200000,301008,5,2,150642100,150.642,,,,21
+avl_buscar,AVL,200000,301008,5,2,94171800,94.171,,,,21
+lista_agregar_final,Lista enlazada,200000,301008,5,2,26188400,26.188,,,,
+cola_encolar_desencolar,Cola circular,200000,301008,5,2,5588000,5.588,,,,
+pila_apilar_desapilar,Pila,200000,301008,5,2,3747100,3.747,,,,
+registro_avl,AVL por ID,200000,300323,5,3,388847700,388.847,,,,21
+validacion_kahn,Cola circular,200000,300323,5,3,50246600,50.246,,,,
+alturas_pila,Pila,200000,300323,5,3,15107600,15.107,,,,
+planificacion_avl,AVL de prioridad,200000,300323,5,3,217691400,217.691,40000,40000,1,
+cota_inferior,Arreglos,200000,300323,5,3,244900,0.244,,40000,,
+proceso_total,Todas,200000,300323,5,3,672138200,672.138,40000,40000,1,
+avl_insertar,AVL,200000,300323,5,3,144188200,144.188,,,,21
+avl_buscar,AVL,200000,300323,5,3,79938900,79.938,,,,21
+lista_agregar_final,Lista enlazada,200000,300323,5,3,41798600,41.798,,,,
+cola_encolar_desencolar,Cola circular,200000,300323,5,3,5640800,5.640,,,,
+pila_apilar_desapilar,Pila,200000,300323,5,3,4584200,4.584,,,,
+registro_avl,AVL por ID,200000,300170,5,4,452911200,452.911,,,,21
+validacion_kahn,Cola circular,200000,300170,5,4,72702700,72.702,,,,
+alturas_pila,Pila,200000,300170,5,4,18507300,18.507,,,,
+planificacion_avl,AVL de prioridad,200000,300170,5,4,204368100,204.368,40000,40000,1,
+cota_inferior,Arreglos,200000,300170,5,4,244300,0.244,,40000,,
+proceso_total,Todas,200000,300170,5,4,748733600,748.733,40000,40000,1,
+avl_insertar,AVL,200000,300170,5,4,137201600,137.201,,,,21
+avl_buscar,AVL,200000,300170,5,4,80063800,80.063,,,,21
+lista_agregar_final,Lista enlazada,200000,300170,5,4,16260500,16.260,,,,
+cola_encolar_desencolar,Cola circular,200000,300170,5,4,6115800,6.115,,,,
+pila_apilar_desapilar,Pila,200000,300170,5,4,3643200,3.643,,,,
+registro_avl,AVL por ID,500000,749430,5,0,1187529100,1187.529,,,,23
+validacion_kahn,Cola circular,500000,749430,5,0,159771300,159.771,,,,
+alturas_pila,Pila,500000,749430,5,0,85344500,85.344,,,,
+planificacion_avl,AVL de prioridad,500000,749430,5,0,549559200,549.559,100000,100000,1,
+cota_inferior,Arreglos,500000,749430,5,0,1499400,1.499,,100000,,
+proceso_total,Todas,500000,749430,5,0,1983703500,1983.703,100000,100000,1,
+avl_insertar,AVL,500000,749430,5,0,573388300,573.388,,,,23
+avl_buscar,AVL,500000,749430,5,0,343351300,343.351,,,,23
+lista_agregar_final,Lista enlazada,500000,749430,5,0,40357900,40.357,,,,
+cola_encolar_desencolar,Cola circular,500000,749430,5,0,13424000,13.424,,,,
+pila_apilar_desapilar,Pila,500000,749430,5,0,8295700,8.295,,,,
+registro_avl,AVL por ID,500000,749541,5,1,1208831600,1208.831,,,,23
+validacion_kahn,Cola circular,500000,749541,5,1,171974000,171.974,,,,
+alturas_pila,Pila,500000,749541,5,1,62172400,62.172,,,,
+planificacion_avl,AVL de prioridad,500000,749541,5,1,619238100,619.238,100000,100000,1,
+cota_inferior,Arreglos,500000,749541,5,1,663200,0.663,,100000,,
+proceso_total,Todas,500000,749541,5,1,2062879300,2062.879,100000,100000,1,
+avl_insertar,AVL,500000,749541,5,1,431548000,431.548,,,,23
+avl_buscar,AVL,500000,749541,5,1,285717800,285.717,,,,23
+lista_agregar_final,Lista enlazada,500000,749541,5,1,23914500,23.914,,,,
+cola_encolar_desencolar,Cola circular,500000,749541,5,1,12167700,12.167,,,,
+pila_apilar_desapilar,Pila,500000,749541,5,1,7910800,7.910,,,,
+registro_avl,AVL por ID,500000,749128,5,2,1080373800,1080.373,,,,23
+validacion_kahn,Cola circular,500000,749128,5,2,187779600,187.779,,,,
+alturas_pila,Pila,500000,749128,5,2,57093600,57.093,,,,
+planificacion_avl,AVL de prioridad,500000,749128,5,2,600515400,600.515,100000,100000,1,
+cota_inferior,Arreglos,500000,749128,5,2,891800,0.891,,100000,,
+proceso_total,Todas,500000,749128,5,2,1926654200,1926.654,100000,100000,1,
+avl_insertar,AVL,500000,749128,5,2,461312500,461.312,,,,23
+avl_buscar,AVL,500000,749128,5,2,289117700,289.117,,,,23
+lista_agregar_final,Lista enlazada,500000,749128,5,2,71787500,71.787,,,,
+cola_encolar_desencolar,Cola circular,500000,749128,5,2,15901900,15.901,,,,
+pila_apilar_desapilar,Pila,500000,749128,5,2,11976300,11.976,,,,
+registro_avl,AVL por ID,500000,750258,5,3,1305723100,1305.723,,,,23
+validacion_kahn,Cola circular,500000,750258,5,3,150062500,150.062,,,,
+alturas_pila,Pila,500000,750258,5,3,43538600,43.538,,,,
+planificacion_avl,AVL de prioridad,500000,750258,5,3,550593700,550.593,100000,100000,1,
+cota_inferior,Arreglos,500000,750258,5,3,700400,0.700,,100000,,
+proceso_total,Todas,500000,750258,5,3,2050618300,2050.618,100000,100000,1,
+avl_insertar,AVL,500000,750258,5,3,437270900,437.270,,,,23
+avl_buscar,AVL,500000,750258,5,3,291183200,291.183,,,,23
+lista_agregar_final,Lista enlazada,500000,750258,5,3,46702200,46.702,,,,
+cola_encolar_desencolar,Cola circular,500000,750258,5,3,11566500,11.566,,,,
+pila_apilar_desapilar,Pila,500000,750258,5,3,8471000,8.471,,,,
+registro_avl,AVL por ID,500000,749324,5,4,1144434000,1144.434,,,,23
+validacion_kahn,Cola circular,500000,749324,5,4,164105000,164.105,,,,
+alturas_pila,Pila,500000,749324,5,4,45231600,45.231,,,,
+planificacion_avl,AVL de prioridad,500000,749324,5,4,547522200,547.522,100000,100000,1,
+cota_inferior,Arreglos,500000,749324,5,4,613400,0.613,,100000,,
+proceso_total,Todas,500000,749324,5,4,1901906200,1901.906,100000,100000,1,
+avl_insertar,AVL,500000,749324,5,4,436350000,436.350,,,,23
+avl_buscar,AVL,500000,749324,5,4,280423500,280.423,,,,23
+lista_agregar_final,Lista enlazada,500000,749324,5,4,69220500,69.220,,,,
+cola_encolar_desencolar,Cola circular,500000,749324,5,4,13262000,13.262,,,,
+pila_apilar_desapilar,Pila,500000,749324,5,4,8988300,8.988,,,,
+registro_avl,AVL por ID,1000000,1500118,5,0,3372750600,3372.750,,,,24
+validacion_kahn,Cola circular,1000000,1500118,5,0,368635200,368.635,,,,
+alturas_pila,Pila,1000000,1500118,5,0,113505500,113.505,,,,
+planificacion_avl,AVL de prioridad,1000000,1500118,5,0,1276884300,1276.884,200000,200000,1,
+cota_inferior,Arreglos,1000000,1500118,5,0,1818500,1.818,,200000,,
+proceso_total,Todas,1000000,1500118,5,0,5133594100,5133.594,200000,200000,1,
+avl_insertar,AVL,1000000,1500118,5,0,1067927300,1067.927,,,,24
+avl_buscar,AVL,1000000,1500118,5,0,731626500,731.626,,,,24
+lista_agregar_final,Lista enlazada,1000000,1500118,5,0,86692000,86.692,,,,
+cola_encolar_desencolar,Cola circular,1000000,1500118,5,0,25504800,25.504,,,,
+pila_apilar_desapilar,Pila,1000000,1500118,5,0,15015600,15.015,,,,
+registro_avl,AVL por ID,1000000,1499738,5,1,2911955300,2911.955,,,,24
+validacion_kahn,Cola circular,1000000,1499738,5,1,467163200,467.163,,,,
+alturas_pila,Pila,1000000,1499738,5,1,145313000,145.313,,,,
+planificacion_avl,AVL de prioridad,1000000,1499738,5,1,1471286300,1471.286,200000,200000,1,
+cota_inferior,Arreglos,1000000,1499738,5,1,1273500,1.273,,200000,,
+proceso_total,Todas,1000000,1499738,5,1,4996991300,4996.991,200000,200000,1,
+avl_insertar,AVL,1000000,1499738,5,1,1122583100,1122.583,,,,24
+avl_buscar,AVL,1000000,1499738,5,1,763447300,763.447,,,,24
+lista_agregar_final,Lista enlazada,1000000,1499738,5,1,96764000,96.764,,,,
+cola_encolar_desencolar,Cola circular,1000000,1499738,5,1,31186300,31.186,,,,
+pila_apilar_desapilar,Pila,1000000,1499738,5,1,17654600,17.654,,,,
+registro_avl,AVL por ID,1000000,1499717,5,2,2787402700,2787.402,,,,24
+validacion_kahn,Cola circular,1000000,1499717,5,2,464573100,464.573,,,,
+alturas_pila,Pila,1000000,1499717,5,2,130525400,130.525,,,,
+planificacion_avl,AVL de prioridad,1000000,1499717,5,2,1452577800,1452.577,200000,200000,1,
+cota_inferior,Arreglos,1000000,1499717,5,2,1797400,1.797,,200000,,
+proceso_total,Todas,1000000,1499717,5,2,4836876400,4836.876,200000,200000,1,
+avl_insertar,AVL,1000000,1499717,5,2,1046089000,1046.089,,,,24
+avl_buscar,AVL,1000000,1499717,5,2,774529900,774.529,,,,24
+lista_agregar_final,Lista enlazada,1000000,1499717,5,2,39742100,39.742,,,,
+cola_encolar_desencolar,Cola circular,1000000,1499717,5,2,23762400,23.762,,,,
+pila_apilar_desapilar,Pila,1000000,1499717,5,2,17055200,17.055,,,,
+registro_avl,AVL por ID,1000000,1499885,5,3,2827674300,2827.674,,,,24
+validacion_kahn,Cola circular,1000000,1499885,5,3,477143500,477.143,,,,
+alturas_pila,Pila,1000000,1499885,5,3,144794200,144.794,,,,
+planificacion_avl,AVL de prioridad,1000000,1499885,5,3,1468517100,1468.517,200000,200000,1,
+cota_inferior,Arreglos,1000000,1499885,5,3,1774400,1.774,,200000,,
+proceso_total,Todas,1000000,1499885,5,3,4919903500,4919.903,200000,200000,1,
+avl_insertar,AVL,1000000,1499885,5,3,1157681400,1157.681,,,,24
+avl_buscar,AVL,1000000,1499885,5,3,729669900,729.669,,,,24
+lista_agregar_final,Lista enlazada,1000000,1499885,5,3,80246000,80.246,,,,
+cola_encolar_desencolar,Cola circular,1000000,1499885,5,3,27324000,27.324,,,,
+pila_apilar_desapilar,Pila,1000000,1499885,5,3,21562800,21.562,,,,
+registro_avl,AVL por ID,1000000,1499422,5,4,2794837400,2794.837,,,,24
+validacion_kahn,Cola circular,1000000,1499422,5,4,450700700,450.700,,,,
+alturas_pila,Pila,1000000,1499422,5,4,132083600,132.083,,,,
+planificacion_avl,AVL de prioridad,1000000,1499422,5,4,1479484200,1479.484,200000,200000,1,
+cota_inferior,Arreglos,1000000,1499422,5,4,1239500,1.239,,200000,,
+proceso_total,Todas,1000000,1499422,5,4,4858345400,4858.345,200000,200000,1,
+avl_insertar,AVL,1000000,1499422,5,4,1153082900,1153.082,,,,24
+avl_buscar,AVL,1000000,1499422,5,4,839593000,839.593,,,,24
+lista_agregar_final,Lista enlazada,1000000,1499422,5,4,94577200,94.577,,,,
+cola_encolar_desencolar,Cola circular,1000000,1499422,5,4,29924100,29.924,,,,
+pila_apilar_desapilar,Pila,1000000,1499422,5,4,16897700,16.897,,,,

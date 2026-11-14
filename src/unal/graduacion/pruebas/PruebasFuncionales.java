@@ -11,6 +11,7 @@ import unal.graduacion.estructuras.ListaEnlazada;
 import unal.graduacion.estructuras.Pila;
 import unal.graduacion.io.CargadorPlan;
 import unal.graduacion.medicion.GeneradorAleatorio;
+import unal.graduacion.medicion.GeneradorPlanes;
 import unal.graduacion.modelo.Asignatura;
 import unal.graduacion.modelo.RegistroAsignaturas;
 import unal.graduacion.planificador.Analisis;
@@ -57,6 +58,8 @@ public final class PruebasFuncionales {
         p.grupo("Ciclos (RF3)", p::ciclos);
         p.grupo("Planificador y cotas (RF4 a RF6)", p::planificador);
         p.grupo("Requisito de créditos", p::creditos);
+        p.grupo("Planes aleatorios", p::aleatorios);
+        p.grupo("Malla real 2A74", p::mallaReal);
         out.println();
         out.println("Resultado: " + p.aprobadas + " verificaciones correctas, " + p.fallidas + " fallidas.");
         return p.fallidas;
@@ -290,6 +293,65 @@ public final class PruebasFuncionales {
         Plan incompleto = Analisis.ejecutar(imposible, 3).plan();
         verificar(!incompleto.esCompleto() && incompleto.problema().contains("componente C"),
                 "avisa si un requisito de créditos es inalcanzable");
+    }
+
+    private void aleatorios() {
+        GeneradorAleatorio azar = new GeneradorAleatorio(99);
+        boolean validos = true;
+        boolean cotaValida = true;
+        boolean iguales = true;
+        for (int i = 0; i < 300; i++) {
+            int n = 1 + azar.entero(80);
+            int k = 1 + azar.entero(6);
+            GeneradorPlanes.PlanCrudo crudo = GeneradorPlanes.generar(n, k, 3, 1 + azar.entero(n), 1000 + i);
+            RegistroAsignaturas r = GeneradorPlanes.registrar(crudo);
+            ValidadorCiclos.Resultado v = ValidadorCiclos.validar(r);
+            int[] altura = CalculadoraAlturas.calcular(r, v.ordenTopologico());
+            Plan plan = Planificador.planificar(r, k, altura);
+            Plan conLista = Planificador.planificar(r, k, new DisponiblesLista(altura));
+            CotaInferior cota = CotaInferior.calcular(altura, n, k);
+            validos &= v.esAciclico() && VerificadorPlan.verificar(r, plan) == null;
+            cotaValida &= cota.simple() <= cota.reforzada() && cota.reforzada() <= plan.cantidadSemestres();
+            iguales &= conLista.cantidadSemestres() == plan.cantidadSemestres();
+        }
+        verificar(validos, "300 planes aleatorios: todos acíclicos y con planes válidos");
+        verificar(cotaValida, "cota simple <= cota reforzada <= semestres del plan");
+        verificar(iguales, "la lista y el AVL eligen lo mismo (misma prioridad)");
+    }
+
+    private void mallaReal() {
+        CargadorPlan.Resultado carga = cargar("datos/plan_2A74.txt");
+        if (carga != null) {
+            RegistroAsignaturas r = carga.registro();
+            verificar(carga.exitoso() && carga.advertencias().estaVacia(), "carga la malla sin errores ni advertencias");
+            verificar(r.cantidad() == 49 && r.creditosTotales() == 165 && carga.k() == 6, "49 asignaturas, 165 créditos, k = 6");
+            Analisis a = Analisis.ejecutar(r, carga.k());
+            verificar(a.hayPlan(), "la malla no tiene ciclos");
+            verificar(a.cota().porCadena() == 7, "cadena más larga: 7 (Cálculo diferencial -> ... -> Modelos estocásticos)");
+            verificarPlan(r, a.plan(), "malla 2A74");
+            Asignatura taller = r.buscar(2024045);
+            Asignatura trabajo = r.buscar(2025974);
+            Asignatura gerencia = r.buscar(2015702);
+            int semestreTaller = a.plan().semestreDe(taller.indice());
+            verificar(creditosAntes(a.plan(), semestreTaller, 'C') >= 40
+                    && a.plan().semestreDe(gerencia.indice()) < semestreTaller,
+                    "Taller: después de 40 créditos disciplinares y de Gerencia y gestión de proyectos");
+            verificar(creditosAntes(a.plan(), a.plan().semestreDe(trabajo.indice()), 'C') >= 60,
+                    "Trabajo de grado: después de 60 créditos disciplinares");
+            verificar(r.buscar(1000017).gradoEntrada() == 2, "Electricidad y magnetismo exige Mecánica y Cálculo integral");
+            verificar(r.buscar(2016377) == r.buscar(1000004), "el código de una optativa (2016377) encuentra Cálculo diferencial");
+            verificar(r.buscar(2016722) != null && r.cantidadAlias() > 40, "códigos del Acuerdo 11 de 2023 y de sus optativas");
+            out.println("    (con k = 6 el plan usa " + a.plan().cantidadSemestres() + " semestres; cota "
+                    + a.cota().reforzada() + "; la malla sugiere 10)");
+        }
+        CargadorPlan.Resultado nivelacion = cargar("datos/plan_2A74_nivelacion.txt");
+        if (nivelacion != null) {
+            RegistroAsignaturas r = nivelacion.registro();
+            Analisis a = Analisis.ejecutar(r, nivelacion.k());
+            verificar(nivelacion.exitoso() && r.cantidad() == 55 && r.creditosTotales() == 185, "con nivelación: 55 asignaturas, 185 créditos");
+            verificar(a.hayPlan() && a.cota().porCadena() == 8, "con nivelación la cadena más larga es 8");
+            verificarPlan(r, a.plan(), "malla con nivelación");
+        }
     }
 
     // ------------------------------------------------------------------ utilidades

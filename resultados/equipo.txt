@@ -1,0 +1,13 @@
+﻿procesador: AMD Ryzen 3 3250U with Radeon Graphics
+nucleos: 2
+hilos: 4
+frecuencia_maxima_mhz: 2600
+ram_gb: 13.9
+sistema_operativo: Microsoft Windows 11 Pro Education 10.0.26200 (compilacion 26200, 64 bits)
+vscode: 1.144.0
+jvm_memoria_maxima_gb: 3.5
+javac: javac 24.0.2
+java:
+openjdk version "24.0.2" 2025-07-15
+OpenJDK Runtime Environment Zulu24.32+13-CA (build 24.0.2+12)
+OpenJDK 64-Bit Server VM Zulu24.32+13-CA (build 24.0.2+12, mixed mode, sharing)
