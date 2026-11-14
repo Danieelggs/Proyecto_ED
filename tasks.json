@@ -1,0 +1,162 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Graduación UNAL: compilar",
+      "type": "process",
+      "windows": {
+        "command": "powershell.exe",
+        "args": [
+          "-NoProfile",
+          "-ExecutionPolicy",
+          "Bypass",
+          "-File",
+          "${workspaceFolder}\\herramientas\\mediciones_reporte.ps1",
+          "-Modo",
+          "compilar"
+        ]
+      },
+      "linux": {
+        "command": "bash",
+        "args": [
+          "-c",
+          "javac -encoding UTF-8 -d out $(find src -name '*.java')"
+        ]
+      },
+      "osx": {
+        "command": "bash",
+        "args": [
+          "-c",
+          "javac -encoding UTF-8 -d out $(find src -name '*.java')"
+        ]
+      },
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Graduación UNAL: pruebas",
+      "type": "process",
+      "windows": {
+        "command": "powershell.exe",
+        "args": [
+          "-NoProfile",
+          "-ExecutionPolicy",
+          "Bypass",
+          "-File",
+          "${workspaceFolder}\\herramientas\\mediciones_reporte.ps1",
+          "-Modo",
+          "pruebas"
+        ]
+      },
+      "linux": {
+        "command": "bash",
+        "args": [
+          "-c",
+          "javac -encoding UTF-8 -d out $(find src -name '*.java') && java -cp out unal.graduacion.Main --pruebas"
+        ]
+      },
+      "osx": {
+        "command": "bash",
+        "args": [
+          "-c",
+          "javac -encoding UTF-8 -d out $(find src -name '*.java') && java -cp out unal.graduacion.Main --pruebas"
+        ]
+      },
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Graduación UNAL: menú interactivo",
+      "type": "process",
+      "windows": {
+        "command": "powershell.exe",
+        "args": [
+          "-NoProfile",
+          "-ExecutionPolicy",
+          "Bypass",
+          "-File",
+          "${workspaceFolder}\\herramientas\\mediciones_reporte.ps1",
+          "-Modo",
+          "menu"
+        ]
+      },
+      "linux": {
+        "command": "bash",
+        "args": [
+          "-c",
+          "javac -encoding UTF-8 -d out $(find src -name '*.java') && java -cp out unal.graduacion.Main"
+        ]
+      },
+      "osx": {
+        "command": "bash",
+        "args": [
+          "-c",
+          "javac -encoding UTF-8 -d out $(find src -name '*.java') && java -cp out unal.graduacion.Main"
+        ]
+      },
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Graduación UNAL: mediciones para el reporte",
+      "detail": "Compila, corre las pruebas y las mediciones y deja resultados/para_el_reporte.zip",
+      "type": "process",
+      "windows": {
+        "command": "powershell.exe",
+        "args": [
+          "-NoProfile",
+          "-ExecutionPolicy",
+          "Bypass",
+          "-File",
+          "${workspaceFolder}\\herramientas\\mediciones_reporte.ps1",
+          "-Modo",
+          "reporte"
+        ]
+      },
+      "linux": {
+        "command": "bash",
+        "args": [
+          "${workspaceFolder}/herramientas/mediciones_reporte.sh"
+        ]
+      },
+      "osx": {
+        "command": "bash",
+        "args": [
+          "${workspaceFolder}/herramientas/mediciones_reporte.sh"
+        ]
+      },
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": []
+    }
+  ]
+}
