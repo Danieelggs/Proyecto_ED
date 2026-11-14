@@ -13,6 +13,15 @@ import unal.graduacion.io.CargadorPlan;
 import unal.graduacion.medicion.GeneradorAleatorio;
 import unal.graduacion.modelo.Asignatura;
 import unal.graduacion.modelo.RegistroAsignaturas;
+import unal.graduacion.planificador.Analisis;
+import unal.graduacion.planificador.CalculadoraAlturas;
+import unal.graduacion.planificador.CotaInferior;
+import unal.graduacion.planificador.DisponiblesLista;
+import unal.graduacion.planificador.Plan;
+import unal.graduacion.planificador.Planificador;
+import unal.graduacion.planificador.Semestre;
+import unal.graduacion.planificador.ValidadorCiclos;
+import unal.graduacion.planificador.VerificadorPlan;
 
 /**
  * Pruebas funcionales con respuesta conocida. No dependen de JUnit, así que
@@ -45,6 +54,9 @@ public final class PruebasFuncionales {
         p.grupo("Árbol AVL", p::avl);
         p.grupo("BST sin balanceo", p::bst);
         p.grupo("Registro de asignaturas desde el archivo (RF1, RF2)", p::carga);
+        p.grupo("Ciclos (RF3)", p::ciclos);
+        p.grupo("Planificador y cotas (RF4 a RF6)", p::planificador);
+        p.grupo("Requisito de créditos", p::creditos);
         out.println();
         out.println("Resultado: " + p.aprobadas + " verificaciones correctas, " + p.fallidas + " fallidas.");
         return p.fallidas;
@@ -210,6 +222,76 @@ public final class PruebasFuncionales {
         verificar(!CargadorPlan.cargarTexto("2\n1;A;cr>=3,crC>=2;3;C\n").exitoso(), "rechaza dos requisitos de créditos en una asignatura");
     }
 
+    private void ciclos() {
+        CargadorPlan.Resultado carga = cargar("datos/ciclo.txt");
+        if (carga == null) {
+            return;
+        }
+        ValidadorCiclos.Resultado v = ValidadorCiclos.validar(carga.registro());
+        verificar(!v.esAciclico(), "detecta el ciclo");
+        verificar(v.bloqueadas().tamano() == 4, "bloqueadas: las 3 del ciclo y la que depende de él");
+        verificar(v.ciclo().tamano() == 3, "el ciclo tiene 3 asignaturas");
+        boolean cerrado = true;
+        ListaEnlazada<Asignatura> ciclo = v.ciclo();
+        for (int i = 0; i < ciclo.tamano(); i++) {
+            Asignatura actual = ciclo.obtener(i);
+            Asignatura siguiente = ciclo.obtener((i + 1) % ciclo.tamano());
+            cerrado &= siguiente.prerrequisitos().contiene(actual);
+        }
+        verificar(cerrado, "cada asignatura del ciclo es prerrequisito de la siguiente");
+        verificar(!Analisis.ejecutar(carga.registro(), 2).hayPlan(), "no se planifica un plan con ciclos");
+    }
+
+    // ------------------------------------------------------------------ planificador
+
+    private void planificador() {
+        CargadorPlan.Resultado ejemplo = cargar("datos/plan_ejemplo.txt");
+        if (ejemplo != null) {
+            Analisis a = Analisis.ejecutar(ejemplo.registro(), 3);
+            Plan plan = a.plan();
+            verificarPlan(ejemplo.registro(), plan, "ejemplo del README");
+            verificar(plan.cantidadSemestres() == 3 && a.esOptimoGarantizado(), "ejemplo del README: 3 semestres, óptimo garantizado");
+            Semestre primero = plan.semestres().obtenerPrimero();
+            verificar(primero.asignaturas().obtener(0).id() == 102 && primero.asignaturas().obtener(1).id() == 101
+                    && primero.asignaturas().obtener(2).id() == 106, "desempate: mayor altura y luego ID menor (102, 101, 106)");
+        }
+
+        RegistroAsignaturas cadena = CargadorPlan.cargarTexto("4\n1;A;\n2;B;1\n3;C;2\n4;D;3\n5;E;4\n6;F;5\n").registro();
+        verificar(Analisis.ejecutar(cadena, 4).plan().cantidadSemestres() == 6, "una cadena de 6 necesita 6 semestres con cualquier k");
+
+        RegistroAsignaturas libres = CargadorPlan.cargarTexto("3\n1;A;\n2;B;\n3;C;\n4;D;\n5;E;\n6;F;\n7;G;\n8;H;\n9;I;\n10;J;\n").registro();
+        verificar(Analisis.ejecutar(libres, 3).plan().cantidadSemestres() == 4, "10 asignaturas sin prerrequisitos y k = 3: techo(10/3) = 4");
+        verificar(Analisis.ejecutar(libres, 1).plan().cantidadSemestres() == 10, "k = 1: un semestre por asignatura");
+
+        CargadorPlan.Resultado reforzada = cargar("datos/cota_reforzada.txt");
+        if (reforzada != null) {
+            Analisis a = Analisis.ejecutar(reforzada.registro(), 2);
+            verificar(a.plan().cantidadSemestres() == 4, "S1, S2, S3 -> M -> N con k = 2: 4 semestres");
+            verificar(a.cota().simple() == 3 && a.cota().reforzada() == 4, "cota simple 3, cota reforzada 4");
+            verificar(a.esOptimoGarantizado(), "solo la cota reforzada certifica que es óptimo");
+        }
+    }
+
+    private void creditos() {
+        RegistroAsignaturas r = CargadorPlan.cargarTexto("3\n1;A;;3\n2;B;;3\n3;Trabajo;cr>=6;6\n").registro();
+        Plan plan = Analisis.ejecutar(r, 3).plan();
+        verificarPlan(r, plan, "requisito de créditos totales");
+        verificar(plan.cantidadSemestres() == 2 && plan.semestreDe(r.buscar(3).indice()) == 2,
+                "cr>=6 espera a que A y B sumen 6 créditos");
+
+        RegistroAsignaturas porComponente = CargadorPlan.cargarTexto(
+                "4\n1;A;;3;C\n2;B;;4;B\n3;D;1;3;C\n4;Trabajo;crC>=6;6;C\n").registro();
+        Plan planComponente = Analisis.ejecutar(porComponente, 4).plan();
+        verificarPlan(porComponente, planComponente, "requisito por componente");
+        verificar(planComponente.semestreDe(porComponente.buscar(4).indice()) == 3,
+                "crC>=6 no cuenta los créditos de B: espera a A y D (semestre 3)");
+
+        RegistroAsignaturas imposible = CargadorPlan.cargarTexto("3\n1;A;;3;C\n2;B;;9;B\n3;Trabajo;crC>=6;6;C\n").registro();
+        Plan incompleto = Analisis.ejecutar(imposible, 3).plan();
+        verificar(!incompleto.esCompleto() && incompleto.problema().contains("componente C"),
+                "avisa si un requisito de créditos es inalcanzable");
+    }
+
     // ------------------------------------------------------------------ utilidades
 
     private void grupo(String nombre, Runnable prueba) {
@@ -233,6 +315,11 @@ public final class PruebasFuncionales {
         }
     }
 
+    private void verificarPlan(RegistroAsignaturas registro, Plan plan, String nombre) {
+        String error = VerificadorPlan.verificar(registro, plan);
+        verificar(error == null, nombre + ": el plan cumple k, prerrequisitos y créditos" + (error == null ? "" : " (" + error + ")"));
+    }
+
     private CargadorPlan.Resultado cargar(String ruta) {
         if (!new File(ruta).isFile()) {
             fallidas++;
@@ -246,6 +333,21 @@ public final class PruebasFuncionales {
             out.println("  FALLA  no se pudo leer " + ruta + ": " + e.getMessage());
             return null;
         }
+    }
+
+    private static long creditosAntes(Plan plan, int semestre, char componente) {
+        long creditos = 0;
+        for (ListaEnlazada.Nodo<Semestre> nodo = plan.semestres().primero(); nodo != null; nodo = nodo.siguiente()) {
+            if (nodo.dato().numero() >= semestre) {
+                continue;
+            }
+            for (ListaEnlazada.Nodo<Asignatura> a = nodo.dato().asignaturas().primero(); a != null; a = a.siguiente()) {
+                if (a.dato().componente() == componente) {
+                    creditos += a.dato().creditos();
+                }
+            }
+        }
+        return creditos;
     }
 
     /** @return los IDs de los prerrequisitos registrados de una asignatura, separados por coma */
