@@ -1,0 +1,102 @@
+# Plan de estudios 2A74 · Ingeniería de Sistemas y Computación · UNAL Bogotá
+# Fuente: Acuerdo 11 de 2023 del Consejo de Facultad de Ingeniería (vigente desde el
+# 12/12/2023; derogó el Acuerdo 006 de 2023 que cita la malla en PDF). Los semestres
+# sugeridos y las casillas de libre elección salen de la malla del plan estándar 2023.
+# 49 asignaturas, 165 créditos: fundamentación (B) 51, disciplinar (C) 81, libre elección (L) 33.
+#
+# Diferencias del Acuerdo frente a la malla en PDF:
+#   - Fundamentos de electricidad y magnetismo exige también Fundamentos de mecánica.
+#   - Taller de proyectos interdisciplinarios exige 40 créditos del componente
+#     disciplinar (C) y Gerencia y gestión de proyectos.
+#   - Trabajo de grado exige 60 créditos del componente disciplinar (C).
+#   - Computación paralela y distribuida tiene el código 2016722 (la malla dice 2025968).
+#
+# Cada línea es una casilla de la malla. Las optativas cumplen la misma casilla y sus
+# códigos también sirven para buscarla (--id). El Acuerdo escribe los prerrequisitos de
+# cada casilla con "o" entre sus opciones (Cálculo integral pide Cálculo diferencial o
+# Cálculo diferencial en una variable), así que basta con enlazar casillas. Algunas
+# optativas tienen prerrequisitos propios (Tecnología digital solo pide Arquitectura de
+# computadores; Electrónica digital I pide Electrónica análoga I): si eligen una, ajusten
+# su línea.
+#
+# Matemáticas básicas es prerrequisito de Cálculo diferencial solo para quien deba cursar
+# nivelación: ver plan_2A74_nivelacion.txt.
+# Artículo 2 transitorio del Acuerdo: Pensamiento sistémico no se exigió para Ingeniería
+# de software I ni para Sistemas de información durante tres periodos; aquí se deja la
+# regla permanente.
+# Libre elección 1 a 8 son casillas de la malla sin código (9000001 a 9000008).
+#
+# Formato: id;nombre;prerrequisitos;créditos;componente;optativas
+#   prerrequisitos  códigos separados por coma; crC>=N = haber aprobado N créditos del componente C
+#   componente      B fundamentación · C disciplinar · L libre elección · P nivelación
+#   optativas       "código nombre (créditos)" separadas por |
+#
+# k = 6: ningún semestre de la malla sugerida tiene más de 6 asignaturas.
+6
+
+# ---- Semestre I (sugerido)
+1000004;Cálculo diferencial;;4;B;2016377 Cálculo diferencial en una variable (4 cr)
+2025975;Introducción a la ingeniería de sistemas y computación;;3;C;
+2015734;Programación de computadores;;3;C;2026573 Introducción a las ciencias de la computación y a la programación (3 cr)
+2016703;Pensamiento sistémico;;3;C;
+1000089;Cátedra nacional de inducción y preparación para la vida universitaria;;2;L;
+
+# ---- Semestre II
+1000019;Fundamentos de mecánica;1000004;4;B;
+1000005;Cálculo integral;1000004;4;B;2015556 Cálculo integral en una variable (4 cr)
+1000003;Álgebra lineal;1000004;4;B;2015555 Álgebra lineal básica (4 cr)
+2016375;Programación orientada a objetos;2015734;3;C;
+
+# ---- Semestre III
+1000017;Fundamentos de electricidad y magnetismo;1000019,1000005;4;B;
+1000006;Cálculo en varias variables;1000005;4;B;2015162 Cálculo vectorial (4 cr)
+2025963;Matemáticas discretas I;1000003;4;B;2015168 Fundamentos de matemáticas (4 cr)
+2016353;Bases de datos;2016375;3;C;2027641 Análisis de bases de datos (3 cr)
+2016698;Elementos de computadores;2025975;3;C;2016498 Electrónica digital I (4 cr)
+
+# ---- Semestre IV
+1000013;Probabilidad y estadística fundamental;1000005;3;B;2027877 Probabilidad fundamental (4 cr)|2015178 Probabilidad (4 cr)
+2015703;Ingeniería económica;1000005;3;B;2025986 Ingeniería económica y análisis de riesgo (3 cr)|2016047 Modelos económicos computacionales (3 cr)
+2025964;Matemáticas discretas II;2025963;4;B;2015181 Sistemas numéricos (4 cr)
+2016699;Estructuras de datos;2016375;3;C;
+2016697;Arquitectura de computadores;2016698;3;C;
+
+# ---- Semestre V
+2025970;Modelos y simulación;1000013,2016375,1000006,2025964;3;C;2019082 Modelos matemáticos I (4 cr)|2017293 Modelación matemática (3 cr)
+2015702;Gerencia y gestión de proyectos;2015703;3;B;2016028 Diseño, gestión y evaluación de proyectos (4 cr)
+2025967;Redes de computadores;1000017,2016699,2016697;3;C;
+2016701;Ingeniería de software I;2016699,2016703,2016353;3;C;
+2015174;Introducción a la teoría de la computación;2025963;4;B;
+
+# ---- Semestre VI
+2025971;Optimización;2025970;3;C;2015173 Introducción a la optimización (4 cr)
+2025982;Sistemas de información;2015702,2016703,2016353;3;C;2016053 Sistemas de información gerencial (4 cr)
+2015970;Métodos numéricos;1000006;3;B;2019072 Análisis numérico I (4 cr)
+2016702;Ingeniería de software II;2016701,2025967;3;C;
+2016696;Algoritmos;1000013,2025964,2016699;3;B;
+2016707;Sistemas operativos;2016697;3;C;
+
+# ---- Semestre VII
+2025969;Modelos estocásticos y simulación en computación y comunicaciones;2025971;3;C;
+2025983;Arquitectura de infraestructura y gobierno de TICs;2025982,2016702;3;C;
+2025994;Teoría de la información y sistemas de comunicaciones;1000013,2025967;3;C;2016492 Comunicaciones (3 cr)
+2016716;Arquitectura de software;2016702;3;C;
+2025995;Introducción a los sistemas inteligentes;2016696;3;C;2016748 Inteligencia artificial (3 cr)|2023251 Inteligencia artificial y minirobots (3 cr)|2027631 Introducción a la inteligencia artificial (3 cr)|2028837 Matemáticas del aprendizaje de máquinas (4 cr)|2017290 Técnicas de inteligencia artificial (3 cr)
+2025966;Lenguajes de programación;2016699,2015174;3;C;2027642 Compiladores (3 cr)|2027628 Teoría de lenguajes formales (3 cr)
+
+# ---- Semestre VIII
+2024045;Taller de proyectos interdisciplinarios;2015702,crC>=40;3;C;2016615 Taller de invención y creatividad (3 cr)|2017275 Proyecto aplicado de ingeniería (4 cr)|2016093 Taller de énfasis en animación y narrativas audiovisuales I (3 cr)|2016091 Taller de énfasis en multimedia e imagen digital I (3 cr)|2026551 Creación y gestión de empresas (3 cr)|2016007 Fundamentos de administración (4 cr)|2016600 Gestión tecnológica (3 cr)|2016599 Gestión de la ciencia, la tecnología y la innovación (3 cr)|2016741 Finanzas (3 cr)|2016037 Finanzas avanzadas (4 cr)
+2016722;Computación paralela y distribuida;2016696;3;C;
+2025972;Introducción a la criptografía y a la seguridad de la información;2016696;3;C;2027311 Introducción a la criptografía y a la teoría de información (4 cr)|2027313 Teoría de la codificación (4 cr)|2027310 Criptografía (3 cr)
+2025960;Computación visual;2016696;3;C;2016788 Tecnología digital (3 cr)|2016753 Microcontroladores (3 cr)|2016080 Aplicaciones gráficas tridimensionales (3 cr)|2025196 Introducción a la biología computacional (4 cr)|2026548 Introducción al análisis combinatorio (4 cr)|2028837 Matemáticas del aprendizaje de máquinas (4 cr)|2027309 Análisis forense digital (4 cr)|2029297 Introducción a la computación de alto rendimiento (4 cr)|2016770 Robótica (3 cr)
+9000001;Libre elección 1;;3;L;
+
+# ---- Semestres IX y X
+9000002;Libre elección 2;;4;L;
+9000003;Libre elección 3;;4;L;
+9000004;Libre elección 4;;4;L;
+9000005;Libre elección 5;;4;L;
+9000006;Libre elección 6;;4;L;
+9000007;Libre elección 7;;4;L;
+9000008;Libre elección 8;;4;L;
+2025974;Trabajo de grado - Trabajo investigativo;crC>=60;6;C;2025973 Trabajo de grado - Práctica de extensión (6 cr)|2016843 Trabajo de grado - Asignaturas de posgrado (6 cr)

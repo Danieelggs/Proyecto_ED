@@ -9,7 +9,10 @@ import unal.graduacion.estructuras.ArbolBST;
 import unal.graduacion.estructuras.Cola;
 import unal.graduacion.estructuras.ListaEnlazada;
 import unal.graduacion.estructuras.Pila;
+import unal.graduacion.io.CargadorPlan;
 import unal.graduacion.medicion.GeneradorAleatorio;
+import unal.graduacion.modelo.Asignatura;
+import unal.graduacion.modelo.RegistroAsignaturas;
 
 /**
  * Pruebas funcionales con respuesta conocida. No dependen de JUnit, así que
@@ -41,6 +44,7 @@ public final class PruebasFuncionales {
         p.grupo("Pila", p::pila);
         p.grupo("Árbol AVL", p::avl);
         p.grupo("BST sin balanceo", p::bst);
+        p.grupo("Registro de asignaturas desde el archivo (RF1, RF2)", p::carga);
         out.println();
         out.println("Resultado: " + p.aprobadas + " verificaciones correctas, " + p.fallidas + " fallidas.");
         return p.fallidas;
@@ -158,6 +162,54 @@ public final class PruebasFuncionales {
         verificar(bst.buscar(1999L) != null && bst.buscar(0L) == null, "buscar en el BST degenerado");
     }
 
+    // ------------------------------------------------------------------ carga
+
+    private void carga() {
+        CargadorPlan.Resultado ejemplo = cargar("datos/plan_ejemplo.txt");
+        if (ejemplo != null) {
+            RegistroAsignaturas r = ejemplo.registro();
+            verificar(ejemplo.exitoso() && ejemplo.k() == 3, "carga el ejemplo del README con k = 3");
+            verificar(r.cantidad() == 6 && r.cantidadPrerrequisitos() == 4, "6 asignaturas y 4 prerrequisitos");
+            verificar(prerrequisitosDe(r, 107).equals("105,106") && prerrequisitosDe(r, 104).equals("101")
+                    && prerrequisitosDe(r, 101).isEmpty(), "registra cada asignatura con su ID y su lista de prerrequisitos");
+            boolean todas = true;
+            for (long id : new long[] {101, 102, 104, 105, 106, 107}) {
+                todas &= r.buscar(id) != null && r.buscar(id).id() == id;
+            }
+            verificar(todas && r.buscar(103) == null, "cada ID del archivo se encuentra en el AVL; uno que no está da null (RF2)");
+            Asignatura ed = r.buscar(107);
+            verificar(ed != null && ed.gradoEntrada() == 2 && "Estructuras de Datos".equals(ed.nombre()), "acceso por ID (RF2)");
+        }
+
+        CargadorPlan.Resultado errores = cargar("datos/errores.txt");
+        if (errores != null) {
+            verificar(errores.errores().tamano() == 5, "detecta los 5 errores del archivo de errores (hay " + errores.errores().tamano() + ")");
+            verificar(errores.advertencias().tamano() == 1, "el prerrequisito repetido es solo una advertencia");
+            verificar(contiene(errores.errores(), "duplicado"), "ID duplicado");
+            verificar(contiene(errores.errores(), "no existe"), "prerrequisito inexistente");
+            verificar(contiene(errores.errores(), "sí misma"), "una asignatura no puede exigirse a sí misma");
+            verificar(contiene(errores.errores(), "no es un número"), "ID no numérico");
+            verificar(contiene(errores.errores(), "créditos"), "créditos inválidos");
+            Asignatura once = errores.registro().buscar(11);
+            verificar(once != null && once.gradoEntrada() == 1, "acepta prerrequisitos definidos más abajo (dos pasadas)");
+        }
+
+        verificar(!CargadorPlan.cargarTexto("1;A;\n2;B;1\n").exitoso(), "rechaza un archivo sin k");
+        verificar(!CargadorPlan.cargarTexto("0\n1;A;\n").exitoso(), "rechaza k = 0");
+        verificar(!CargadorPlan.cargarTexto("2\n1\n").exitoso(), "rechaza una línea con un solo campo");
+        verificar(!CargadorPlan.cargarTexto("2\n1;A;cr>=x\n").exitoso(), "rechaza un requisito de créditos mal escrito");
+        CargadorPlan.Resultado bom = CargadorPlan.cargarTexto("﻿2\n1;A;\n");
+        verificar(bom.exitoso() && bom.k() == 2, "ignora la marca BOM de Windows");
+        CargadorPlan.Resultado completa = CargadorPlan.cargarTexto("2\n1;A;;3;C;77 Opción X (4 cr)|Opción Y\n2;B;1,crC>=3;4;B\n");
+        Asignatura b = completa.registro().buscar(2);
+        verificar(completa.exitoso() && b.creditos() == 4 && b.componente() == 'B', "lee créditos y componente");
+        verificar(b.creditosMinimos() == 3 && b.componenteRequisito() == 'C', "lee el requisito crC>=N");
+        verificar(completa.registro().buscar(1).optativas().tamano() == 2, "lee las optativas separadas por |");
+        verificar(completa.registro().buscar(77) == completa.registro().buscar(1), "el código de una optativa encuentra su casilla");
+        verificar(!CargadorPlan.cargarTexto("2\n1;A;;3;X\n").exitoso(), "rechaza un componente distinto de B, C, L o P");
+        verificar(!CargadorPlan.cargarTexto("2\n1;A;cr>=3,crC>=2;3;C\n").exitoso(), "rechaza dos requisitos de créditos en una asignatura");
+    }
+
     // ------------------------------------------------------------------ utilidades
 
     private void grupo(String nombre, Runnable prueba) {
@@ -179,6 +231,33 @@ public final class PruebasFuncionales {
             fallidas++;
             out.println("  FALLA  " + descripcion);
         }
+    }
+
+    private CargadorPlan.Resultado cargar(String ruta) {
+        if (!new File(ruta).isFile()) {
+            fallidas++;
+            out.println("  FALLA  no se encontró " + ruta + " (corra las pruebas desde la raíz del repositorio)");
+            return null;
+        }
+        try {
+            return CargadorPlan.cargarArchivo(ruta);
+        } catch (IOException e) {
+            fallidas++;
+            out.println("  FALLA  no se pudo leer " + ruta + ": " + e.getMessage());
+            return null;
+        }
+    }
+
+    /** @return los IDs de los prerrequisitos registrados de una asignatura, separados por coma */
+    private static String prerrequisitosDe(RegistroAsignaturas registro, long id) {
+        StringBuilder texto = new StringBuilder();
+        for (ListaEnlazada.Nodo<Asignatura> nodo = registro.buscar(id).prerrequisitos().primero(); nodo != null; nodo = nodo.siguiente()) {
+            if (texto.length() > 0) {
+                texto.append(',');
+            }
+            texto.append(nodo.dato().id());
+        }
+        return texto.toString();
     }
 
     private static boolean contiene(ListaEnlazada<String> mensajes, String fragmento) {
