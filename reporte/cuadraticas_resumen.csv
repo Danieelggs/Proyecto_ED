@@ -1,0 +1,6 @@
+n,registro_avl,validacion_kahn,alturas_pila,planificacion_avl,cota_inferior,proceso_total,avl_insertar,avl_buscar,lista_agregar_final,cola_encolar_desencolar,pila_apilar_desapilar,planificacion_lista,bst_insertar_ordenados,avl_insertar_ordenados,e,altura_avl_id,altura_bst_ordenados,altura_avl_ordenados
+1000,0.679,0.215,0.051,0.614,0.032,1.698,0.212,0.112,0.013,0.071,0.020,1.708,1.615,0.158,1483,12,1000,10
+2000,2.117,0.534,0.165,1.797,0.020,5.348,0.522,0.282,0.028,0.108,0.042,7.378,6.252,0.347,2991,13,2000,11
+5000,3.572,1.040,0.437,4.091,0.060,10.186,1.179,0.735,0.050,0.330,0.115,45.606,35.059,1.046,7493,15,5000,13
+10000,7.458,1.386,0.203,3.926,0.011,12.662,2.158,1.129,0.056,0.243,0.090,153.237,121.739,1.092,15042,16,10000,14
+20000,13.851,3.047,0.795,14.296,0.022,36.646,4.634,2.596,0.111,0.422,0.171,855.632,483.805,2.537,30022,17,20000,15
