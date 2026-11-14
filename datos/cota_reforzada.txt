@@ -1,0 +1,9 @@
+# S1, S2 y S3 son prerrequisitos de M, y M lo es de N, con k = 2.
+# Cota simple: max(⌈5/2⌉, 3) = 3. Óptimo real: 4 semestres.
+# La cota reforzada da 4 y certifica que el plan es óptimo.
+2
+1;S1;
+2;S2;
+3;S3;
+4;M;1,2,3
+5;N;4

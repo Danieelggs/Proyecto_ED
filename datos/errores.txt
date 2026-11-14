@@ -1,0 +1,11 @@
+# Archivo con errores a propósito, para mostrar las validaciones de RF1.
+3
+10;Asignatura válida;
+11;Usa una asignatura que aparece más abajo (válido);12
+12;Definida después;
+10;ID repetido;
+13;Prerrequisito inexistente;99
+14;Se exige a sí misma;14
+XX;ID que no es número;
+15;Créditos inválidos;;tres
+16;Prerrequisito repetido (solo advertencia);10,10

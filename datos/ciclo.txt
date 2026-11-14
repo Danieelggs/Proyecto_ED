@@ -1,0 +1,8 @@
+# Plan imposible: A, B y C se exigen en círculo, y D depende del ciclo.
+# El sistema debe rechazarlo, listar las cuatro bloqueadas y mostrar el ciclo.
+2
+1;Asignatura A;3
+2;Asignatura B;1
+3;Asignatura C;2
+4;Asignatura D;3
+5;Asignatura E;

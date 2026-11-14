@@ -1,0 +1,9 @@
+# Primera línea: k = máximo de asignaturas por semestre
+3
+# id;nombre;prerrequisitos separados por coma
+101;Cálculo Diferencial;
+102;Fundamentos de Programación;
+104;Cálculo Integral;101
+105;Programación Orientada a Objetos;102
+106;Matemáticas Discretas I;
+107;Estructuras de Datos;105,106
