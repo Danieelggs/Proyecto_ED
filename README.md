@@ -54,11 +54,13 @@ Todas las estructuras de datos están implementadas **desde cero** en `src/unal/
 
 El plan de estudios se modela como un **grafo dirigido**: cada asignatura es un nodo y cada prerrequisito es una arista `A → B` ("A debe aprobarse antes que B"). Un plan válido no puede tener ciclos; si los tiene, es imposible de terminar y el sistema lo reporta.
 
+Por ejemplo, un fragmento de la malla 2A74:
+
 ```text
-Cálculo Diferencial ──► Cálculo Integral ──► Ecuaciones Diferenciales
-                                        └──► Probabilidad y Estadística
-Fundamentos de Prog. ──► POO ──► Estructuras de Datos ──► Algoritmos
-Matemáticas Discretas ─────────────────┘
+Cálculo Diferencial ──► Cálculo Integral ──► Cálculo en Varias Variables
+    │                                    └──► Probabilidad y Estadística ──────────┐
+    └──► Álgebra Lineal ──► Matemáticas Discretas I ──► Matemáticas Discretas II ──┤
+Programación de Computadores ──► POO ──► Estructuras de Datos ─────────────────────┴──► Algoritmos
 ```
 
 **Flujo:**
@@ -72,7 +74,7 @@ Matemáticas Discretas ─────────────────┘
    - Cota simple: `max(⌈n/k⌉, cadena más larga)`.
    - Cota reforzada: el máximo, sobre cada altura `h`, de `h − 1 + ⌈N(h)/k⌉`, con `N(h)` el número de asignaturas de altura `≥ h`. Nunca es menor que la simple.
 
-Cuando `k` puede tomar cualquier valor, el problema es NP-difícil (Ullman, 1975): no se conoce un algoritmo exacto y eficiente para todos los planes. Solo los hay en casos particulares, como `k = 2` (Coffman y Graham, 1972); para un `k` fijo mayor o igual a 3, su complejidad sigue siendo un problema abierto. Por eso el sistema combina una heurística rápida con un certificado: el algoritmo de Hu es óptimo cuando cada asignatura es prerrequisito de a lo sumo otra, y la cota inferior dice cuándo el resultado es óptimo en los demás casos. En la malla real lo certifica para `k` = 4, 5, 6 y 7.
+Cuando `k` puede tomar cualquier valor, el problema es NP-difícil (Ullman, 1975): no se conoce un algoritmo exacto y eficiente para todos los planes. Solo los hay en casos particulares, como `k = 2` (Coffman y Graham, 1972); para un `k` fijo mayor o igual a 3, su complejidad sigue siendo un problema abierto. Por eso el sistema combina una heurística rápida con un certificado: el algoritmo de Hu es óptimo cuando cada asignatura es prerrequisito de a lo sumo otra, y la cota inferior dice cuándo el resultado es óptimo en los demás casos. En la malla real lo certifica para todos los valores de `k` probados, de 2 a 10.
 
 ## Estructuras de datos
 
@@ -122,18 +124,19 @@ Ambas versiones se compararán con mediciones de tiempo de ejecución y gráfica
 id;nombre;prerrequisitos;créditos;componente;optativas
 ```
 
-Solo `id` y `nombre` son obligatorios, así que el formato corto de la Entrega 1 sigue funcionando:
+Solo `id` y `nombre` son obligatorios, así que el formato corto de la Entrega 1 sigue funcionando. Por ejemplo, algunas asignaturas de la malla 2A74 en formato corto:
 
 ```text
 # Primera línea: k = máximo de asignaturas por semestre
-3
+6
 # id;nombre;prerrequisitos separados por coma
-101;Cálculo Diferencial;
-102;Fundamentos de Programación;
-104;Cálculo Integral;101
-105;Programación Orientada a Objetos;102
-106;Matemáticas Discretas I;
-107;Estructuras de Datos;105,106
+1000004;Cálculo diferencial;
+2015734;Programación de computadores;
+1000005;Cálculo integral;1000004
+1000003;Álgebra lineal;1000004
+2016375;Programación orientada a objetos;2015734
+2025963;Matemáticas discretas I;1000003
+2016699;Estructuras de datos;2016375
 ```
 
 Los campos opcionales sirven para la malla real (`datos/plan_2A74.txt`):
@@ -145,29 +148,42 @@ Los campos opcionales sirven para la malla real (`datos/plan_2A74.txt`):
 | componente | `B` fundamentación, `C` disciplinar, `L` libre elección, `P` nivelación | `C` |
 | optativas | `código nombre (créditos)`, separadas por `\|`; su código también encuentra la casilla | `2016377 Cálculo diferencial en una variable (4 cr)` |
 
-**Salida** de `java -cp out unal.graduacion.Main datos/plan_ejemplo.txt`:
+**Salida** de `java -cp out unal.graduacion.Main datos/plan_2A74.txt` (primeros 3 de 9 semestres):
 
 ```text
-Plan: datos/plan_ejemplo.txt
-6 asignaturas · 4 prerrequisitos · k = 3
+Plan: datos/plan_2A74.txt
+49 asignaturas · 51 prerrequisitos · 165 créditos · k = 6
 
-Semestres necesarios: 3
-Cota inferior:        3   (por cantidad 6/3 -> 2, por cadena 3)
-Resultado:            óptimo garantizado; ningún plan termina en menos de 3 semestres.
+Semestres necesarios: 9
+Cota inferior:        9   (por cantidad 49/6 -> 9, por cadena 7)
+Resultado:            óptimo garantizado; ningún plan termina en menos de 9 semestres.
 
 h = altura: cuántas asignaturas tiene la cadena más larga que abre.  * = crítica: si se atrasa, se atrasa la graduación.
 
-Semestre 1 · 3 asignaturas
-  * h3  [102] Fundamentos de Programación
-    h2  [101] Cálculo Diferencial
-    h2  [106] Matemáticas Discretas I
+Semestre 1 · 6 asignaturas · 18 créditos · acumulados 18
+    4 cr  h7  [1000004] Cálculo diferencial
+    3 cr  h6  [2015734] Programación de computadores
+    3 cr  h6  [2025975] Introducción a la ingeniería de sistemas y computación
+    3 cr  h4  [2016703] Pensamiento sistémico
+    2 cr  h1  [1000089] Cátedra nacional de inducción y preparación para la vida universitaria
+    3 cr  h1  [9000001] Libre elección 1
 
-Semestre 2 · 2 asignaturas
-  * h2  [105] Programación Orientada a Objetos
-    h1  [104] Cálculo Integral
+Semestre 2 · 6 asignaturas · 22 créditos · acumulados 40
+    4 cr  h6  [1000003] Álgebra lineal
+    4 cr  h5  [1000005] Cálculo integral
+    4 cr  h5  [1000019] Fundamentos de mecánica
+    3 cr  h5  [2016375] Programación orientada a objetos
+    3 cr  h5  [2016698] Elementos de computadores
+    4 cr  h1  [9000002] Libre elección 2
 
-Semestre 3 · 1 asignatura
-  * h1  [107] Estructuras de Datos
+Semestre 3 · 6 asignaturas · 21 créditos · acumulados 61
+    4 cr  h5  [2025963] Matemáticas discretas I
+    4 cr  h4  [1000006] Cálculo en varias variables
+    3 cr  h4  [1000013] Probabilidad y estadística fundamental
+    4 cr  h4  [1000017] Fundamentos de electricidad y magnetismo
+    3 cr  h4  [2015703] Ingeniería económica
+    3 cr  h4  [2016353] Bases de datos
+...
 ```
 
 ## Instalación
@@ -270,7 +286,7 @@ Proyecto_ED/
 ├── datos/
 │   ├── plan_2A74.txt              # malla real de Ingeniería de Sistemas y Computación, k = 6
 │   ├── plan_2A74_nivelacion.txt   # la misma malla con las 6 asignaturas de nivelación
-│   ├── plan_ejemplo.txt           # ejemplo corto de este README
+│   ├── plan_ejemplo.txt           # plan pequeño inventado que usan las pruebas
 │   ├── ciclo.txt                  # plan imposible: detección de ciclos (RF3)
 │   ├── cota_reforzada.txt         # caso en que la cota reforzada supera a la simple
 │   └── errores.txt                # errores a propósito: validaciones de la carga (RF1)
@@ -310,3 +326,7 @@ El enunciado deja a criterio del equipo el formato de entrada y la representaci�
 - **Commits:** mensajes descriptivos en español y en imperativo, un avance concreto por commit. Ejemplo: `Agrega rotaciones al árbol AVL`.
 - **Antes de cada commit:** compilar y correr `java -cp out unal.graduacion.Main --pruebas`; deben salir 0 fallidas.
 - **Código:** nombres en español, comentarios Javadoc con la complejidad de cada operación.
+
+## Sobre el historial de commits
+
+Para varios integrantes, esta entrega fue la primera vez que usaron GitHub. Por eso cada uno subió su parte desde la página de GitHub, directamente a `main` y sin ramas, y algunos archivos quedaron al principio en carpetas equivocadas y se corrigieron con commits posteriores. Esas correcciones no cambian el código: la versión final de `main` compila y pasa las 81 verificaciones.
